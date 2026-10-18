@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riverbend Yoga Studio | Events</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="events.js" defer></script>
 </head>
 <body>
     <header>
-         <img class="studio-logo" src="images/yoga-logo_c.png" alt="Riverbend Yoga Studio logo">
+        <img class="studio-logo" src="images/yoga-logo_c.png"
+             alt="Riverbend Yoga Studio logo">
         <h1>Workshops and Studio Events</h1>
         <p>Explore supportive workshops and let us know what interests you.</p>
     </header>
@@ -34,25 +37,36 @@
         </section>
 
         <figure>
-            <img src="images/yoga-workshop_c.png" alt="A yoga instructor guiding a small group of students during a workshop">
-            <figcaption>Our workshops offer a friendly space to learn, practise, and ask questions at your own pace.</figcaption>
+            <img src="images/yoga-workshop_c.png"
+                 alt="A yoga instructor guiding a small group of students during a workshop">
+            <figcaption>
+                Our workshops offer a friendly space to learn, practise, and ask questions at your own pace.
+            </figcaption>
         </figure>
 
         <section>
             <h2>Request a Spot or More Information</h2>
-            <p>Complete this form to tell us which workshop or class interests you. Sending this form is an expression of interest, not a confirmed reservation.</p>
-            <form action="#" method="get">
+            <p>
+                Complete this form to tell us which workshop or class interests you.
+                Sending this form is an expression of interest, not a confirmed reservation.
+            </p>
+
+            <form id="interestForm" action="#" method="get" novalidate>
                 <fieldset>
                     <legend>Your Contact Information</legend>
 
                     <p>
                         <label for="name">Full name:</label><br>
-                        <input type="text" id="name" name="name" autocomplete="name" required>
+                        <input type="text" id="name" name="name"
+                               autocomplete="name" required>
+                        <small class="error" id="nameError"></small>
                     </p>
 
                     <p>
                         <label for="email">Email address:</label><br>
-                        <input type="email" id="email" name="email" autocomplete="email" required>
+                        <input type="email" id="email" name="email"
+                               autocomplete="email" required>
+                        <small class="error" id="emailError"></small>
                     </p>
                 </fieldset>
 
@@ -71,15 +85,24 @@
                             <option value="rest-and-restore">Rest and Restore workshop</option>
                             <option value="private-session">Private session</option>
                         </select>
+                        <small class="error" id="interestError"></small>
                     </p>
 
-                    <p> <span>Experience level:</span><br>
-                        <input type="radio" id="beginner" name="experience" value="beginner" required>
+                    <p>
+                        <span>Experience level:</span><br>
+
+                        <input type="radio" id="beginner" name="experience"
+                               value="beginner" required>
                         <label for="beginner">Beginner</label><br>
-                        <input type="radio" id="some-experience" name="experience" value="some-experience">
+
+                        <input type="radio" id="some-experience" name="experience"
+                               value="some-experience">
                         <label for="some-experience">Some experience</label><br>
-                        <input type="radio" id="experienced" name="experience" value="experienced">
+
+                        <input type="radio" id="experienced" name="experience"
+                               value="experienced">
                         <label for="experienced">Experienced</label>
+                        <small class="error" id="experienceError"></small>
                     </p>
 
                     <p>
@@ -89,15 +112,22 @@
                             <option value="email">Email</option>
                             <option value="phone">Phone</option>
                         </select>
+                        <small class="error" id="contactError"></small>
                     </p>
 
                     <p>
                         <label for="message">Message or accommodation request:</label><br>
-                        <textarea id="message" name="message" rows="5" maxlength="1000" placeholder="Tell us about your questions or needs."></textarea>
+                        <textarea id="message" name="message" rows="5"
+                                  maxlength="1000"
+                                  placeholder="Tell us about your questions or needs."></textarea>
                     </p>
                 </fieldset>
 
-                <p><button type="submit">Send Interest Request</button></p>
+                <p>
+                    <button type="submit">Send Interest Request</button>
+                </p>
+
+                <p id="formMessage" role="status" aria-live="polite"></p>
             </form>
         </section>
     </main>
