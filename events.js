@@ -1,73 +1,76 @@
 
 "use strict";
 
-// Available classes and experience levels
+// Available classes and workshops
 const classOptions = [
-    "Beginner Yoga",
-    "Gentle Yoga",
-    "Vinyasa Yoga",
-    "Yoga Workshop"
+    "gentle-yoga",
+    "vinyasa-yoga",
+    "restorative-yoga",
+    "first-steps-workshop",
+    "breathing-workshop",
+    "rest-and-restore",
+    "private-session"
 ];
 
+// Available experience levels
 const experienceLevels = [
-    "Beginner",
-    "Intermediate",
-    "Experienced"
+    "beginner",
+    "some-experience",
+    "experienced"
 ];
 
-// Messages used for form validation
+// Validation messages
 const validationMessages = {
-    name: "Please enter your name.",
+    name: "Please enter your full name.",
     email: "Please enter a valid email address.",
-    classInterest: "Please select a class or workshop.",
+    interest: "Please select a class or event.",
     experience: "Please select your experience level.",
-    contact: "Please select a contact method."
+    contact: "Please select your preferred contact method."
 };
 
-// Find the form and its fields
+// Get form elements using the IDs from events.html
 const form = document.getElementById("interestForm");
-const nameInput = document.getElementById("visitorName");
-const emailInput = document.getElementById("visitorEmail");
-const classSelect = document.getElementById("classInterest");
-const experienceSelect = document.getElementById("experience");
-const contactSelect = document.getElementById("contactMethod");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const interestSelect = document.getElementById("interest");
+const contactSelect = document.getElementById("contact-method");
 const message = document.getElementById("formMessage");
 
-const STORAGE_KEY = "riverbendPreferredClass";
+const STORAGE_KEY = "riverbendPreferredInterest";
 
-// Display an error beside a field
+// Display an error message
 function showError(errorId, errorText) {
     document.getElementById(errorId).textContent = errorText;
 }
 
-// Save the selected class in browser storage
+// Save the selected class or workshop
 function savePreference() {
-    const selectedClass = classSelect.value;
+    const selectedInterest = interestSelect.value;
 
-    if (classOptions.includes(selectedClass)) {
-        localStorage.setItem(STORAGE_KEY, selectedClass);
+    if (classOptions.includes(selectedInterest)) {
+        localStorage.setItem(STORAGE_KEY, selectedInterest);
     } else {
         localStorage.removeItem(STORAGE_KEY);
     }
 }
 
-// Restore the previously selected class
+// Restore the saved class or workshop
 function loadPreference() {
-    const savedClass = localStorage.getItem(STORAGE_KEY);
+    const savedInterest = localStorage.getItem(STORAGE_KEY);
 
-    if (classOptions.includes(savedClass)) {
-        classSelect.value = savedClass;
+    if (classOptions.includes(savedInterest)) {
+        interestSelect.value = savedInterest;
     }
 }
 
-// Validate all required fields
+// Validate the form
 function validateForm() {
     let isValid = true;
 
-    // Clear old error messages
+    // Clear previous errors
     showError("nameError", "");
     showError("emailError", "");
-    showError("classError", "");
+    showError("interestError", "");
     showError("experienceError", "");
     showError("contactError", "");
     message.textContent = "";
@@ -86,20 +89,26 @@ function validateForm() {
         isValid = false;
     }
 
-    // Validate class selection
-    if (!classOptions.includes(classSelect.value)) {
-        showError("classError", validationMessages.classInterest);
+    // Validate class or workshop
+    if (!classOptions.includes(interestSelect.value)) {
+        showError("interestError", validationMessages.interest);
         isValid = false;
     }
 
-    // Validate experience level
-    if (!experienceLevels.includes(experienceSelect.value)) {
+    // Validate experience radio buttons
+    const selectedExperience =
+        document.querySelector('input[name="experience"]:checked');
+
+    if (
+        !selectedExperience ||
+        !experienceLevels.includes(selectedExperience.value)
+    ) {
         showError("experienceError", validationMessages.experience);
         isValid = false;
     }
 
     // Validate contact method
-    if (!["Email", "Phone"].includes(contactSelect.value)) {
+    if (!["email", "phone"].includes(contactSelect.value)) {
         showError("contactError", validationMessages.contact);
         isValid = false;
     }
@@ -107,10 +116,10 @@ function validateForm() {
     return isValid;
 }
 
-// Save preference when the visitor changes the class
-classSelect.addEventListener("change", savePreference);
+// Save preference when the selection changes
+interestSelect.addEventListener("change", savePreference);
 
-// Process the form submission
+// Handle form submission
 form.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -121,11 +130,12 @@ form.addEventListener("submit", function (event) {
 
         message.textContent =
             "Thank you, " + visitorName +
-            "! Your interest form has been checked successfully.";
+            "! Your interest request has been checked successfully. " +
+            "The studio will confirm event details when responding.";
 
         form.reset();
 
-        // Keep the saved class selected after resetting the form
+        // Restore the saved selection after resetting
         loadPreference();
     } else {
         message.textContent =
@@ -133,5 +143,5 @@ form.addEventListener("submit", function (event) {
     }
 });
 
-// Restore the saved class when the page loads
+// Load the saved preference when the page opens
 loadPreference();
