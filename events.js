@@ -1,6 +1,8 @@
 
 "use strict";
 
+alert("JavaScript is working!");
+
 // Available classes and workshops
 const classOptions = [
     "gentle-yoga",
