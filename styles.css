@@ -1,0 +1,309 @@
+/* Riverbend Yoga Studio — Touchstone 3 visual design
+   Touchstone 2 content and page filenames are preserved. */
+:root {
+    --teal: #174f4f;
+    --orange: #f2a23a;
+    --cream: #fbf8f1;
+    --ink: #263636;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+header {
+    padding: 1.5rem 1rem;
+    background: var(--teal);
+    color: var(--white);
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 auto 0.4rem;
+    max-width: 900px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    line-height: 1.2;
+}
+
+header p {
+    max-width: 700px;
+    margin: 0.6rem auto 0;
+}
+
+header .studio-logo {
+    display: block;
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+    margin: 0 auto 0.75rem;
+}
+
+nav {
+    background: var(--white);
+    border-bottom: 3px solid var(--orange);
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    list-style: none;
+    padding: 0.75rem 1rem;
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    color: var(--teal);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus {
+    background: var(--teal);
+    color: var(--white);
+    outline-offset: 3px;
+}
+
+main {
+    width: min(100% - 2rem, 1050px);
+    margin: 1.5rem auto 2.5rem;
+}
+
+section,
+figure {
+    margin: 0 0 1.5rem;
+    padding: 1.25rem;
+    background: var(--white);
+    border-radius: 0.75rem;
+    box-shadow: 0 3px 14px rgba(23, 79, 79, 0.08);
+}
+
+h2,
+h3 {
+    color: var(--teal);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.3;
+}
+
+h2 {
+    margin-top: 0;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--orange);
+}
+
+h3 {
+    margin-bottom: 0.25rem;
+}
+
+p,
+li {
+    max-width: 75ch;
+}
+
+img,
+picture,
+video,
+audio {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+picture {
+    display: block;
+    margin: 1rem 0;
+}
+
+picture img {
+    display: block;
+    width: 100%;
+}
+
+main > section > img,
+figure img {
+    display: block;
+    width: 100%;
+    margin: 1rem auto;
+}
+
+figure figcaption {
+    color: #465656;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+article {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid var(--orange);
+    background: var(--cream);
+    border-radius: 0.25rem;
+}
+
+audio,
+video {
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+form {
+    margin-top: 1rem;
+}
+
+fieldset {
+    min-width: 0;
+    margin: 0 0 1.25rem;
+    padding: 1rem;
+    border: 1px solid #b7ceca;
+    border-radius: 0.5rem;
+}
+
+legend {
+    padding: 0 0.4rem;
+    color: var(--teal);
+    font-weight: 700;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #788d8b;
+    border-radius: 0.35rem;
+    background: var(--white);
+    color: var(--ink);
+    font: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: 3px solid var(--orange);
+    outline-offset: 2px;
+}
+
+input[type="radio"] {
+    margin-right: 0.35rem;
+    accent-color: var(--teal);
+}
+
+button {
+    padding: 0.75rem 1.2rem;
+    border: 0;
+    border-radius: 2rem;
+    background: var(--teal);
+    color: var(--white);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0f3939;
+}
+
+footer {
+    padding: 1.25rem 1rem;
+    background: var(--teal);
+    color: var(--white);
+    text-align: center;
+}
+
+footer p {
+    margin: 0.25rem auto;
+}
+
+footer a {
+    color: var(--white);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+@media (min-width: 700px) {
+    header {
+        padding: 2rem;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        padding: 1.5rem 2.75rem;
+        min-height: 112px;
+    }
+
+    nav a {
+        padding: 0.9rem 1.2rem;
+        font-size: clamp(1.05rem, 2.1vw, 1.65rem);
+    }
+
+    main {
+        margin-top: 2rem;
+    }
+
+    section,
+    figure {
+        padding: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
+    main > section > img,
+    figure img {
+        max-width: 780px;
+    }
+
+    video {
+        max-width: 760px;
+    }
+}
+
+
+/* Current page indicator: the active navigation link is visibly highlighted */
+nav a[aria-current="page"] {
+    background: var(--teal);
+    color: var(--white);
+    box-shadow: inset 0 -3px 0 var(--orange);
+}
+
+nav a[aria-current="page"]:hover,
+nav a[aria-current="page"]:focus {
+    background: #0f3939;
+    color: var(--white);
+}

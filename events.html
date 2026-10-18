@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riverbend Yoga Studio | Events</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+         <img class="studio-logo" src="images/yoga-logo_c.png" alt="Riverbend Yoga Studio logo">
+        <h1>Workshops and Studio Events</h1>
+        <p>Explore supportive workshops and let us know what interests you.</p>
+    </header>
+
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html" aria-current="page">Events</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Upcoming Workshop Ideas</h2>
+            <ul>
+                <li><strong>First Steps in Yoga:</strong> an introduction to basic poses and breathing.</li>
+                <li><strong>Breathing for Busy Days:</strong> simple breathing practices for everyday stress.</li>
+                <li><strong>Rest and Restore:</strong> supported poses and relaxation techniques.</li>
+            </ul>
+            <p>These are sample workshop topics. Dates and availability will be confirmed by the studio.</p>
+        </section>
+
+        <figure>
+            <img src="images/yoga-workshop_c.png" alt="A yoga instructor guiding a small group of students during a workshop">
+            <figcaption>Our workshops offer a friendly space to learn, practise, and ask questions at your own pace.</figcaption>
+        </figure>
+
+        <section>
+            <h2>Request a Spot or More Information</h2>
+            <p>Complete this form to tell us which workshop or class interests you. Sending this form is an expression of interest, not a confirmed reservation.</p>
+            <form action="#" method="get">
+                <fieldset>
+                    <legend>Your Contact Information</legend>
+
+                    <p>
+                        <label for="name">Full name:</label><br>
+                        <input type="text" id="name" name="name" autocomplete="name" required>
+                    </p>
+
+                    <p>
+                        <label for="email">Email address:</label><br>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Your Interests</legend>
+
+                    <p>
+                        <label for="interest">Class or event interest:</label><br>
+                        <select id="interest" name="interest" required>
+                            <option value="">Please choose one</option>
+                            <option value="gentle-yoga">Gentle Yoga</option>
+                            <option value="vinyasa-yoga">Vinyasa Yoga</option>
+                            <option value="restorative-yoga">Restorative Yoga</option>
+                            <option value="first-steps-workshop">First Steps in Yoga workshop</option>
+                            <option value="breathing-workshop">Breathing for Busy Days workshop</option>
+                            <option value="rest-and-restore">Rest and Restore workshop</option>
+                            <option value="private-session">Private session</option>
+                        </select>
+                    </p>
+
+                    <p> <span>Experience level:</span><br>
+                        <input type="radio" id="beginner" name="experience" value="beginner" required>
+                        <label for="beginner">Beginner</label><br>
+                        <input type="radio" id="some-experience" name="experience" value="some-experience">
+                        <label for="some-experience">Some experience</label><br>
+                        <input type="radio" id="experienced" name="experience" value="experienced">
+                        <label for="experienced">Experienced</label>
+                    </p>
+
+                    <p>
+                        <label for="contact-method">Preferred contact method:</label><br>
+                        <select id="contact-method" name="contact-method" required>
+                            <option value="">Please choose one</option>
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="message">Message or accommodation request:</label><br>
+                        <textarea id="message" name="message" rows="5" maxlength="1000" placeholder="Tell us about your questions or needs."></textarea>
+                    </p>
+                </fieldset>
+
+                <p><button type="submit">Send Interest Request</button></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Riverbend Yoga Studio. We will confirm event details when responding.</p>
+    </footer>
+</body>
+</html>
