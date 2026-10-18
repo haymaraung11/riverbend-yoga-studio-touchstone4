@@ -295,6 +295,19 @@ footer a {
 }
 
 
+.error {
+    display: block;
+    color: #b42318;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+#formMessage {
+    margin-top: 16px;
+    font-weight: bold;
+}
+
+
 /* Current page indicator: the active navigation link is visibly highlighted */
 nav a[aria-current="page"] {
     background: var(--teal);
